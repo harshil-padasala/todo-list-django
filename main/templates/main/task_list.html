@@ -3,14 +3,14 @@
 <table>
     <tr>
         <th>Item</th>
+        <th></th>
     </tr>
     {% for task in tasks %}
     <tr>
         <th>{{task.task_title}}</th>
+        <th><a href="{% url 'task' task.id %}"> View  </a></th>
     </tr>
     {% empty %}
-    <h3>
-        No Title
-    </h3>
+    <h3>No Title</h3>
     {% endfor %}
 </table>
