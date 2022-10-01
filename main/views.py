@@ -4,7 +4,21 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
 from .models import Task
 
+from django.contrib.auth.views import LoginView
+
 # Create your views here.
+
+class CustomLoginView(LoginView):
+    """
+    This class is used for login purprse.
+    """
+    template_name = 'main/login.html'
+    fields = '__all__'
+    redirect_authenticated_user = True
+
+    def get_success_url(self) -> str:
+        return reverse_lazy('task-list')
+
 
 class TaskList(ListView):
     """
