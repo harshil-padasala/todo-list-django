@@ -1,9 +1,14 @@
-<h1>Task Create Form</h1>
+{% extends 'main/main.html' %} {% block content %}
 
-<a href="{% url 'task-list' %}">Go Back</a>
+<div class="header-bar">
+    <a href="{% url 'task-list' %}">&#8592; Back</a>
+</div>
 
-<form action="" method="POST">
-    {% csrf_token %}
-    {{form.as_p}}
-    <input type="submit" value="Submit">
-</form>
+<div class="card-body">
+    <form action="" method="POST">
+        {% csrf_token %} {{form.as_p}}
+        <input class="button" type="submit" value="Submit" />
+    </form>
+</div>
+
+{% endblock content %}
